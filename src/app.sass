@@ -4,6 +4,7 @@ $font: 'Nanum Gothic Coding', monospace
 
 body
   font-family: $font
+  color: #555
 
 h2, h4
   font-weight: normal
@@ -15,11 +16,14 @@ h2, h4
   grid-gap: 10px
 
 .query
+  cursor: pointer
+  
   h4
-    background: #c9c9c9
+    background: #f9f9f9
     margin: 0
     padding: 6px
-    color: #fff
+    font-size: 1em
+    border-left: 4px solid #555
 
   code[class*="language-"], pre[class*="language-"]
     line-height: 1
@@ -27,5 +31,5 @@ h2, h4
     text-shadow: none
     background: #f9f9f9
     color: #555
-    cursor: pointer
     margin: 0
+    margin-bottom: 12px
