@@ -12,13 +12,14 @@ html(lang="en")
         h2 Queries
         
         .query
+          h4 Insert one
           pre
             code.language-js
               | db.books.insertOne({
-              |   title: 'Nice one bro',
-              |   author: '',
-              |   price: '',
-              |   currency: '',
+              |   title: 'One Indian Girl',
+              |   author: 'Chetan Bhagat',
+              |   price: 176,
+              |   available: true,
               |   created: ISODate()
               | })
               
