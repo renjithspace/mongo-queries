@@ -1,11 +1,13 @@
 const mongodb = require('./mongodb')
 const io = require('./socket')
 
-function collect(db) {
-  db.collection('books')
-    .find()
-    .toArray()
-    .then(books => io.emit('collection', books))
+function collect() {
+  mongodb.connect.then(db => {
+    db.collection('books')
+      .find()
+      .toArray()
+      .then(books => io.emit('collection', books))
+  })
 }
 
 function insertOne() {
@@ -22,11 +24,12 @@ function insertOne() {
     books.insertOne(book, (error, response) => {
       const result = error ? error : response
       io.emit('result', result)
-      reCollect(db)
+      collect()
     })
   })
 }
 
 module.exports = {
-  insertOne
+  insertOne,
+  collect
 }

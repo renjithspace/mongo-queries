@@ -28,3 +28,4 @@ socket.on('collection', collection => {
 })
 
 emitQueries()
+socket.emit('query', 'collect')
