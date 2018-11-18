@@ -10,6 +10,18 @@ html(lang="en")
     .grid
       .queries
         h2 Queries
+        
+        .query
+          pre
+            code
+              | db.books.insertOne({
+              |   title: 'Nice one bro',
+              |   author: '',
+              |   price: '',
+              |   currency: '',
+              |   created: ISODate()
+              | })
+              
       .collection
         h2 Collection
       .result
