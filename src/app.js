@@ -30,7 +30,7 @@ socket.on('collection', collection => {
 
 function goToCollectionBottom() {
   setTimeout(() => {
-    const collectionWrapperDOM = document.querySelector('.collection .query-wrapper')
+    const collectionWrapperDOM = document.querySelector('.collection .wrapper')
     collectionWrapperDOM.scrollTop = collectionWrapperDOM.scrollHeight
   }, 300)
 }
