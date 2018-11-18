@@ -1,7 +1,7 @@
 const mongodb = require('./mongodb')
 const io = require('./socket')
 
-function reCollect(db) {
+function collect(db) {
   db.collection('books')
     .find()
     .toArray()
