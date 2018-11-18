@@ -1,4 +1,4 @@
-@import 'prismjs/themes/prism-okaidia.css'
+@import 'prismjs/themes/prism-tomorrow.css'
 
 $font: 'Nanum Gothic Coding', monospace
 
@@ -8,8 +8,13 @@ body
 h2, h4
   font-weight: normal
 
-code[class*="language-"]
-  font-family: $font
+code[class*="language-"], pre[class*="language-"]
+  line-height: 1
+  border-radius: 3px
+  font-size: 15px
+  text-shadow: none
+  background: #f9f9f9
+  color: #555
 
 .grid
   display: grid
