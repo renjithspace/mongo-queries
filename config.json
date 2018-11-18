@@ -2,5 +2,6 @@
   "socket": {
     "host": "127.0.0.1",
     "port": 19283
-  }
+  },
+  "mongodb_uri": "mongodb://localhost:27017"
 }
