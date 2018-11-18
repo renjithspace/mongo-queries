@@ -5,15 +5,21 @@ $font: 'Nanum Gothic Coding', monospace
 body
   font-family: $font
   color: #555
+  margin: 0
 
 h2, h4
   font-weight: normal
 
 .grid
-  display: grid
-  grid-template-columns: 33.3% 33.3% auto
-  grid-template-rows: 100vh
-  grid-gap: 10px
+  display: flex
+  justify-content: space-around
+
+  .col
+    width: calc((100% / 3) - 20px)
+
+.query-wrapper
+  overflow: auto
+  max-height: calc(100vh - 111.84px)
 
 .query
   cursor: pointer

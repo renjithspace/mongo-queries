@@ -9,59 +9,62 @@ html(lang="en")
     link(rel="stylesheet", href="https://fonts.googleapis.com/css?family=Nanum+Gothic+Coding:400,700")
   body
     .grid
-      .queries
+      .queries.col
         h2 Queries
         p Just click on query code block to execute
         
-        .query(data-query="insertOne")
-          h4 Insert one
-          pre
-            code.language-js
-              | const book = {
-              |   title: 'One Indian Girl',
-              |   author: 'Chetan Bhagat',
-              |   price: 176,
-              |   available: true,
-              |   created: ISODate()
-              | }
-              |
-              | db.books.insertOne(book)
+        .query-wrapper
+          .query(data-query="insertOne")
+            h4 Insert one
+            pre
+              code.language-js
+                | const book = {
+                |   title: 'One Indian Girl',
+                |   author: 'Chetan Bhagat',
+                |   price: 176,
+                |   available: true,
+                |   created: ISODate()
+                | }
+                |
+                | db.books.insertOne(book)
 
-        .query(data-query="insertMany")
-          h4 Insert many
-          pre
-            code.language-js
-              | const books = [
-              |   {
-              |     title: 'Sita - Warrior of Mithila',
-              |     author: 'Amish',
-              |     price: 350,
-              |     available: true,
-              |     created: ISODate()
-              |   },
-              |   {
-              |     title: 'The Girl in Room 105',
-              |     author: 'Chetan Bhagat',
-              |     price: 199,
-              |     available: false,
-              |     created: ISODate()
-              |   }
-              | ]
-              |
-              | db.books.insertMany(books)
+          .query(data-query="insertMany")
+            h4 Insert many
+            pre
+              code.language-js
+                | const books = [
+                |   {
+                |     title: 'Sita - Warrior of Mithila',
+                |     author: 'Amish',
+                |     price: 350,
+                |     available: true,
+                |     created: ISODate()
+                |   },
+                |   {
+                |     title: 'The Girl in Room 105',
+                |     author: 'Chetan Bhagat',
+                |     price: 199,
+                |     available: false,
+                |     created: ISODate()
+                |   }
+                | ]
+                |
+                | db.books.insertMany(books)
               
-      .collection
+      .collection.col
         h2 Collection
         p The collection disply here
-        .query
-          pre
-            code#collection.language-js
+        .query-wrapper
+          .query
+            pre
+              code#collection.language-js
 
-      .result
+      .result.col
         h2 Result
         p Query results disply here
-        .query
-          pre
-            code#result.language-js
+        .query-wrapper
+          .query
+            pre
+              code#result.language-js
     
     script(src="app.js")
