@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "serve": "parcel serve src/index.pug"
+    "serve:panel": "parcel serve src/index.pug",
+    "serve:socket": "nodemon app.js"
   },
   "keywords": [],
   "author": "renjithspace",
