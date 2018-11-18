@@ -13,7 +13,7 @@ html(lang="en")
         h2 Queries
         p Just click on query code block to execute
         
-        .query
+        .query(data-query="insert:one")
           h4 Insert one
           pre
             code.language-js
@@ -27,7 +27,7 @@ html(lang="en")
               |
               | db.books.insertOne(book)
 
-        .query
+        .query(data-query="insert:many")
           h4 Insert many
           pre
             code.language-js
