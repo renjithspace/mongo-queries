@@ -1,6 +1,13 @@
 const mongodb = require('./mongodb')
 const io = require('./socket')
 
+function reCollect(db) {
+  db.collection('books')
+    .find()
+    .toArray()
+    .then(books => io.emit('collection', books))
+}
+
 function insertOne() {
   mongodb.connect.then(db => {
     const book = {
@@ -15,6 +22,7 @@ function insertOne() {
     books.insertOne(book, (error, response) => {
       const result = error ? error : response
       io.emit('result', result)
+      reCollect(db)
     })
   })
 }
