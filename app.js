@@ -1,14 +1,8 @@
 const express = require('express')
-const socket = require('socket.io')
-const config = require('./config')
+const socket = require('./socket')
 const queries = require('./queries')
 
-const app = express()
-const server = app.listen(config.socket.port, config.socket.host)
-
-const io = socket(server)
-
-io.on('connection', socket => {
+socket.connect.then(socket => {
   socket.on('query', data => {
     queries[data]
   })
