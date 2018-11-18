@@ -24,7 +24,30 @@ html(lang="en")
               |   created: ISODate()
               | }
               |
-              | db.books.insertOne(data)
+              | db.books.insertOne(book)
+
+        .query
+          h4 Insert many
+          pre
+            code.language-js
+              | const books = [
+              |   {
+              |     title: 'Sita - Warrior of Mithila',
+              |     author: 'Amish',
+              |     price: 350,
+              |     available: true,
+              |     created: ISODate()
+              |   },
+              |   {
+              |     title: 'The Girl in Room 105',
+              |     author: 'Chetan Bhagat',
+              |     price: 199,
+              |     available: false,
+              |     created: ISODate()
+              |   }
+              | ]
+              |
+              | db.books.insertMany(books)
               
       .collection
         h2 Collection
