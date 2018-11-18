@@ -1,7 +1,7 @@
-const connect = require('./connect')
+const mongodb = require('../mongodb')
 
 module.exports = () => {
-  connect.then(db => {
+  mongodb.connect.then(db => {
     const book = {
       title: 'One Indian Girl',
       author: 'Chetan Bhagat',

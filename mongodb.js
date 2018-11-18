@@ -1,5 +1,5 @@
 const mongodb = require('mongodb')
-const config = require('../config')
+const config = require('./config')
 
 const MongoClient = mongodb.MongoClient
 
@@ -12,4 +12,4 @@ const connect = new Promise((resolve, reject) => {
   })
 })
 
-module.exports = connect
+module.exports = { connect }
