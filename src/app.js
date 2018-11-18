@@ -15,4 +15,10 @@ function emitQueries() {
   })
 }
 
+socket.on('result', result => {
+  const resultCodeDOM = document.querySelector('#result')
+  const resultCode = JSON.stringify(result)
+  resultCodeDOM.innerHTML = Prism.highlight(resultCode, Prism.languages.javascript)
+})
+
 emitQueries()
