@@ -10,7 +10,7 @@ function emitQueries() {
   queryDOMs.forEach(queryDOM => {
     queryDOM.addEventListener('click', () => {
       const query = queryDOM.getAttribute('data-query')
-      socket.emit(query)
+      socket.emit('query', query)
     })
   })
 }
