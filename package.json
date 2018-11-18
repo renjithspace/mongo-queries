@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "serve:panel": "parcel serve src/index.pug",
-    "serve:socket": "pm2 start app.js --watch"
+    "serve:socket": "pm2 start app.js --watch",
+    "monit": "pm2 monit"
   },
   "keywords": [],
   "author": "renjithspace",
