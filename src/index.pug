@@ -16,13 +16,15 @@ html(lang="en")
           h4 Insert one
           pre
             code.language-js
-              | db.books.insertOne({
+              | const book = {
               |   title: 'One Indian Girl',
               |   author: 'Chetan Bhagat',
               |   price: 176,
               |   available: true,
               |   created: ISODate()
-              | })
+              | }
+              |
+              | db.books.insertOne(data)
               
       .collection
         h2 Collection
