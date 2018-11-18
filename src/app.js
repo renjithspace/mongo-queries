@@ -17,8 +17,14 @@ function emitQueries() {
 
 socket.on('result', result => {
   const resultCodeDOM = document.querySelector('#result')
-  const resultCode = JSON.stringify(result)
+  const resultCode = JSON.stringify(result, null, 2)
   resultCodeDOM.innerHTML = Prism.highlight(resultCode, Prism.languages.javascript)
+})
+
+socket.on('collection', collection => {
+  const collectionCodeDOM = document.querySelector('#collection')
+  const collectionCode = JSON.stringify(collection, null, 2)
+  collectionCodeDOM.innerHTML = Prism.highlight(collectionCode, Prism.languages.javascript)
 })
 
 emitQueries()
