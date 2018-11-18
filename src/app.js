@@ -9,6 +9,9 @@ function emitQueries() {
   
   queryDOMs.forEach(queryDOM => {
     queryDOM.addEventListener('click', () => {
+      const resultCodeDOM = document.querySelector('#result')
+      resultCodeDOM.innerHTML = ''
+
       const query = queryDOM.getAttribute('data-query')
       socket.emit('query', query)
     })
