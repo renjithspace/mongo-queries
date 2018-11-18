@@ -1,9 +1,9 @@
 const express = require('express')
-const socket = require('./socket')
+const io = require('./socket')
 const queries = require('./queries')
 
-socket.connect.then(socket => {
+io.on('connection', socket => {
   socket.on('query', data => {
-    queries[data]
+    queries[data]()
   })
 })

@@ -7,8 +7,4 @@ const server = app.listen(config.socket.port, config.socket.host)
 
 const io = socket(server)
 
-const connect = new Promise((resolve, reject) => {
-  io.on('connection', socket => resolve(socket))
-})
-
-module.exports = { connect }
+module.exports = io
