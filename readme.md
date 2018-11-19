@@ -1,7 +1,7 @@
 # MongoDB queries
 Realtime mongodb query playground
 
-# Serve
+#### Serve
 - Clone the repo
 - Install dependencies
 ```
@@ -15,3 +15,6 @@ npm run serve:socket
 ```
 npm run serve:panel
 ```
+
+#### Web panel
+![alt text](https://i.imgur.com/wQlNnby.png)
