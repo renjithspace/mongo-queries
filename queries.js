@@ -10,6 +10,12 @@ function collect() {
   })
 }
 
+function result(error, response) {
+  const result = error ? error : response
+  io.emit('result', result)
+  collect()
+}
+
 function insertOne() {
   mongodb.connect.then(db => {
     const book = {
@@ -21,11 +27,7 @@ function insertOne() {
     }
     
     var books = db.collection('books')
-    books.insertOne(book, (error, response) => {
-      const result = error ? error : response
-      io.emit('result', result)
-      collect()
-    })
+    books.insertOne(book, (err, res) => result(err, res))
   })
 }
 
@@ -49,22 +51,18 @@ function insertMany() {
     ]
     
     var booksCollection = db.collection('books')
-    booksCollection.insertMany(books, (error, response) => {
-      const result = error ? error : response
-      io.emit('result', result)
-      collect()
-    })
+    booksCollection.insertMany(books, (err, res) => result(err, res))
   })
 }
 
 function updateOne() {
   mongodb.connect.then(db => {
     var books = db.collection('books')
-    books.updateOne({ price: 176 }, {$set: { price: 150 }}, (error, response) => {
-      const result = error ? error : response
-      io.emit('result', result)
-      collect()
-    })
+    books.updateOne(
+      { price: 176 },
+      {$set: { price: 150 }},
+      (err, res) => result(err, res)
+    )
   })
 }
 
