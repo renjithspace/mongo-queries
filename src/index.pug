@@ -26,7 +26,7 @@ html(lang="en")
                 |   created: new Date()
                 | }
                 |
-                | db.books.insertOne(book)
+                | db.collection('books').insertOne(book)
 
           .query(data-query="insertMany")
             h4 Insert many
@@ -49,7 +49,7 @@ html(lang="en")
                 |   }
                 | ]
                 |
-                | db.books.insertMany(books)
+                | db.collection('books').insertMany(books)
 
           .query(data-query="updateOne")
             h4 Update one
