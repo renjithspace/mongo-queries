@@ -29,7 +29,36 @@ function insertOne() {
   })
 }
 
+function insertMany() {
+  mongodb.connect.then(db => {
+    const books = [
+      {
+        title: 'Sita - Warrior of Mithila',
+        author: 'Amish',
+        price: 350,
+        available: true,
+        created: new Date()
+      },
+      {
+        title: 'The Girl in Room 105',
+        author: 'Chetan Bhagat',
+        price: 199,
+        available: false,
+        created: new Date()
+      }
+    ]
+    
+    var booksCollection = db.collection('books')
+    booksCollection.insertMany(books, (error, response) => {
+      const result = error ? error : response
+      io.emit('result', result)
+      collect()
+    })
+  })
+}
+
 module.exports = {
+  collect,
   insertOne,
-  collect
+  insertMany
 }
