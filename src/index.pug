@@ -59,6 +59,15 @@ html(lang="en")
                 | const update = { $set: { price: 150 } }
                 |
                 | db.collection('books').updateOne(filter, update)
+
+          .query(data-query="updateMany")
+            h4 Update many
+            pre
+              code.language-js
+                | const filter = { price: 350 }
+                | const update = { $set: { price: 340 } }
+                |
+                | db.collection('books').updateMany(filter, update)
               
       .collection.col
         h2 Collection
