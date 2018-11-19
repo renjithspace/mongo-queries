@@ -50,6 +50,16 @@ html(lang="en")
                 | ]
                 |
                 | db.books.insertMany(books)
+
+          .query(data-query="updateOne")
+            h4 Update one
+            pre
+              code.language-js
+                | db.collection('books')
+                |   .updateOne(
+                |     { price: 176 },
+                |     { $set: { price: 150 } }
+                |   )
               
       .collection.col
         h2 Collection

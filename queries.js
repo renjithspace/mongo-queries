@@ -57,8 +57,20 @@ function insertMany() {
   })
 }
 
+function updateOne() {
+  mongodb.connect.then(db => {
+    var books = db.collection('books')
+    books.updateOne({ price: 176 }, {$set: { price: 150 }}, (error, response) => {
+      const result = error ? error : response
+      io.emit('result', result)
+      collect()
+    })
+  })
+}
+
 module.exports = {
   collect,
   insertOne,
-  insertMany
+  insertMany,
+  updateOne
 }
