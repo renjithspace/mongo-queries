@@ -55,6 +55,46 @@ function insertMany() {
   })
 }
 
+function insert() {
+  mongodb.connect.then(db => {
+    const book = {
+      title: 'One Indian Girl',
+      author: 'Chetan Bhagat',
+      price: 176,
+      available: true,
+      created: new Date()
+    }
+
+    const books = [
+      {
+        title: 'Sita - Warrior of Mithila',
+        author: 'Amish',
+        price: 350,
+        available: true,
+        created: new Date()
+      },
+      {
+        title: 'The Girl in Room 105',
+        author: 'Chetan Bhagat',
+        price: 199,
+        available: false,
+        created: new Date()
+      }
+    ]
+    
+    var booksCollection = db.collection('books')
+    booksCollection.insert(book, (error, response) => {
+      var result = error ? error : response
+
+      booksCollection.insert(books, (error, response) => {
+        result = [ result, error ? error : response ]
+        io.emit('result', result)
+        collect()
+      })
+    })
+  })
+}
+
 function updateOne() {
   mongodb.connect.then(db => {
     var books = db.collection('books')
@@ -81,6 +121,7 @@ module.exports = {
   collect,
   insertOne,
   insertMany,
+  insert,
   updateOne,
   updateMany
 }
