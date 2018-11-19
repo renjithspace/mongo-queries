@@ -55,11 +55,10 @@ html(lang="en")
             h4 Update one
             pre
               code.language-js
-                | db.collection('books')
-                |   .updateOne(
-                |     { price: 176 },
-                |     { $set: { price: 150 } }
-                |   )
+                | const filter = { price: 176 }
+                | const update = { $set: { price: 150 } }
+                |
+                | db.collection('books').updateOne(filter, update)
               
       .collection.col
         h2 Collection
