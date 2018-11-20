@@ -103,6 +103,15 @@ function findOne() {
   })
 }
 
+function find() {
+  mongodb.connect.then(db => {
+    const query = { price: 350 }
+    db.collection('books')
+      .find(query)
+      .toArray((err, res) => result(err, res))
+  })
+}
+
 function updateOne() {
   mongodb.connect.then(db => {
     var books = db.collection('books')
@@ -131,6 +140,7 @@ module.exports = {
   insertMany,
   insert,
   findOne,
+  find,
   updateOne,
   updateMany
 }

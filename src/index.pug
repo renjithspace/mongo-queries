@@ -90,6 +90,14 @@ html(lang="en")
                 | const query = { author: 'Amish' }
                 |
                 | db.collection('books').findOne(query)
+          
+          .query(data-query="find")
+            h4 Find
+            pre
+              code.language-js
+                | const query = { price: 350 }
+                |
+                | db.collection('books').find(query).toArray()
 
           .query(data-query="updateOne")
             h4 Update one
