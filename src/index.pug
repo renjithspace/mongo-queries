@@ -83,6 +83,14 @@ html(lang="en")
                 | db.collection('books').insert(book)
                 | db.collection('books').insert(books)
 
+          .query(data-query="findOne")
+            h4 Find one
+            pre
+              code.language-js
+                | const query = { author: 'Amish' }
+                |
+                | db.collection('books').findOne(query)
+
           .query(data-query="updateOne")
             h4 Update one
             pre

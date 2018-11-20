@@ -95,6 +95,14 @@ function insert() {
   })
 }
 
+function findOne() {
+  mongodb.connect.then(db => {
+    const query = { author: 'Amish' }
+    db.collection('books')
+      .findOne(query, (err, res) => result(err, res))
+  })
+}
+
 function updateOne() {
   mongodb.connect.then(db => {
     var books = db.collection('books')
@@ -122,6 +130,7 @@ module.exports = {
   insertOne,
   insertMany,
   insert,
+  findOne,
   updateOne,
   updateMany
 }
