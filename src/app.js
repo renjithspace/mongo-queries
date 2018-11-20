@@ -6,8 +6,8 @@ const config = require('../config')
 const socket = io(`http://${config.socket.host}:${config.socket.port}`)
 
 function queriesEmitterInit() {
-  $('.query').click(function() {
-    const query = $(this).attr('data-query')
+  $('.queries pre').click(function() {
+    const query = $(this).closest('.query').attr('data-query')
     socket.emit('query', query)
   })
 }
@@ -28,10 +28,22 @@ function listenToCollection() {
   })
 }
 
+function queriesAccordionInit() {
+  $('.queries').find('pre').hide()
+
+  $('.queries h4').click(function() {
+    const codeDOM = $(this).closest('.query').find('pre')
+
+    const isOpen = codeDOM.css('display') != 'none'
+    isOpen ? codeDOM.hide() : codeDOM.show()
+  })
+}
+
 $(function() {
   queriesEmitterInit()
   listenToResult()
   listenToCollection()
+  queriesAccordionInit()
 })
 
 socket.emit('query', 'collect')
