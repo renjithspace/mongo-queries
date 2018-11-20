@@ -4,7 +4,7 @@ const config = require('../config')
 
 const socket = io(`http://${config.socket.host}:${config.socket.port}`)
 
-function emitQueries() {
+function queriesEmitterInit() {
   const queryDOMs = document.querySelectorAll('.query')
   
   queryDOMs.forEach(queryDOM => {
@@ -30,5 +30,5 @@ socket.on('collection', collection => {
   collectionCodeDOM.innerHTML = Prism.highlight(collectionCode, Prism.languages.javascript)
 })
 
-emitQueries()
+queriesEmitterInit()
 socket.emit('query', 'collect')
