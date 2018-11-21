@@ -129,6 +129,14 @@ html(lang="en")
                 |
                 | db.collection('books').find(query).toArray()
 
+          .query(data-query="findWithGreaterThan")
+            h4 Find with greater than
+            pre
+              code.language-js
+                | const query = { price: { $gt: 199 } }
+                |
+                | db.collection('books').find(query).toArray()
+
           .query(data-query="updateOne")
             h4 Update one
             pre
