@@ -98,6 +98,12 @@ html(lang="en")
                 | const query = { price: 350 }
                 |
                 | db.collection('books').find(query).toArray()
+          
+          .query(data-query="findAll")
+            h4 Find all
+            pre
+              code.language-js
+                | db.collection('books').find().toArray()
 
           .query(data-query="updateOne")
             h4 Update one
