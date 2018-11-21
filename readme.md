@@ -3,8 +3,8 @@ Realtime mongodb query playground
 
 #### Serve
 - Clone the repo
-- Install dependencies
 - Open `config.json` and set `mongodb_uri`
+- Install dependencies
 ```
 npm i
 ```
