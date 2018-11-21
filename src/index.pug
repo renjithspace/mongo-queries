@@ -121,6 +121,14 @@ html(lang="en")
                 |
                 | db.collection('books').find({}, { fields }).toArray()
 
+          .query(data-query="findWithEqual")
+            h4 Find with equal
+            pre
+              code.language-js
+                | const query = { price: { $eq: 199 } }
+                |
+                | db.collection('books').find(query).toArray()
+
           .query(data-query="updateOne")
             h4 Update one
             pre
