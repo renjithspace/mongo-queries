@@ -105,6 +105,14 @@ html(lang="en")
               code.language-js
                 | db.collection('books').find().toArray()
 
+          .query(data-query="findWithExcludeFields")
+            h4 Find with exculde fields
+            pre
+              code.language-js
+                | const fields = { _id: false, created: false }
+                |
+                | db.collection('books').find({}, { fields }).toArray()
+
           .query(data-query="updateOne")
             h4 Update one
             pre

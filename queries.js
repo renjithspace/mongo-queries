@@ -120,6 +120,14 @@ function findAll() {
   })
 }
 
+function findWithExcludeFields() {
+  mongodb.connect.then(db => {
+    db.collection('books')
+      .find({}, { fields: { _id: false, created: false } })
+      .toArray((err, res) => result(err, res))
+  })
+}
+
 function updateOne() {
   mongodb.connect.then(db => {
     var books = db.collection('books')
@@ -150,6 +158,7 @@ module.exports = {
   findOne,
   find,
   findAll,
+  findWithExcludeFields,
   updateOne,
   updateMany
 }
