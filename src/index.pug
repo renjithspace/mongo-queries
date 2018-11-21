@@ -153,6 +153,14 @@ html(lang="en")
                 |
                 | db.collection('books').find(query).toArray()
 
+          .query(data-query="findWithLessThanOrEqual")
+            h4 Find with less than or equal
+            pre
+              code.language-js
+                | const query = { price: { $lte: 199 } }
+                |
+                | db.collection('books').find(query).toArray()
+
           .query(data-query="updateOne")
             h4 Update one
             pre
