@@ -113,6 +113,14 @@ html(lang="en")
                 |
                 | db.collection('books').find({}, { fields }).toArray()
 
+          .query(data-query="findWithIncludeFields")
+            h4 Find with include fields
+            pre
+              code.language-js
+                | const fields = { title: true, author: true }
+                |
+                | db.collection('books').find({}, { fields }).toArray()
+
           .query(data-query="updateOne")
             h4 Update one
             pre

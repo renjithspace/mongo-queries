@@ -128,6 +128,14 @@ function findWithExcludeFields() {
   })
 }
 
+function findWithIncludeFields() {
+  mongodb.connect.then(db => {
+    db.collection('books')
+      .find({}, { fields: { title: true, author: true } })
+      .toArray((err, res) => result(err, res))
+  })
+}
+
 function updateOne() {
   mongodb.connect.then(db => {
     var books = db.collection('books')
@@ -159,6 +167,7 @@ module.exports = {
   find,
   findAll,
   findWithExcludeFields,
+  findWithIncludeFields,
   updateOne,
   updateMany
 }
