@@ -129,6 +129,14 @@ html(lang="en")
                 |
                 | db.collection('books').find(query).toArray()
 
+          .query(data-query="findWithNotEqual")
+            h4 Find with not equal
+            pre
+              code.language-js
+                | const query = { price: { $ne: 199 } }
+                |
+                | db.collection('books').find(query).toArray()
+
           .query(data-query="findWithGreaterThan")
             h4 Find with greater than
             pre

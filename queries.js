@@ -144,6 +144,14 @@ function findWithEqual() {
   })
 }
 
+function findWithNotEqual() {
+  mongodb.connect.then(db => {
+    db.collection('books')
+      .find({ price: { $ne: 199 }})
+      .toArray((err, res) => result(err, res))
+  })
+}
+
 function findWithGreaterThan() {
   mongodb.connect.then(db => {
     db.collection('books')
@@ -209,6 +217,7 @@ module.exports = {
   findWithExcludeFields,
   findWithIncludeFields,
   findWithEqual,
+  findWithNotEqual,
   findWithGreaterThan,
   findWithGreaterThanOrEqual,
   findWithLessThan,
