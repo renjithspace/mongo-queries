@@ -217,6 +217,15 @@ function findWithSort() {
   })
 }
 
+function findWithLimit() {
+  mongodb.connect.then(db => {
+    db.collection('books')
+      .find()
+      .limit(5)
+      .toArray((err, res) => result(err, res))
+  })
+}
+
 function updateOne() {
   mongodb.connect.then(db => {
     var books = db.collection('books')
@@ -259,6 +268,7 @@ module.exports = {
   findWithMatchesNoneValues,
   findWithRanges,
   findWithSort,
+  findWithLimit,
   updateOne,
   updateMany
 }

@@ -199,6 +199,12 @@ html(lang="en")
               code.language-js
                 | db.collection('books').find().sort({ price: 1 }).toArray()
 
+          .query(data-query="findWithLimit")
+            h4 Find with limit
+            pre
+              code.language-js
+                | db.collection('books').find().limit(5).toArray()
+
           .query(data-query="updateOne")
             h4 Update one
             pre
