@@ -226,6 +226,16 @@ function findWithLimit() {
   })
 }
 
+function findWithSortAndLimit() {
+  mongodb.connect.then(db => {
+    db.collection('books')
+      .find()
+      .sort({ price: -1 })
+      .limit(5)
+      .toArray((err, res) => result(err, res))
+  })
+}
+
 function updateOne() {
   mongodb.connect.then(db => {
     var books = db.collection('books')
@@ -269,6 +279,7 @@ module.exports = {
   findWithRanges,
   findWithSort,
   findWithLimit,
+  findWithSortAndLimit,
   updateOne,
   updateMany
 }
