@@ -193,6 +193,12 @@ html(lang="en")
                 |
                 | db.collection('books').find(query).toArray()
 
+          .query(data-query="findWithSort")
+            h4 Find with sort
+            pre
+              code.language-js
+                | db.collection('books').find().sort({ price: 1 }).toArray()
+
           .query(data-query="updateOne")
             h4 Update one
             pre

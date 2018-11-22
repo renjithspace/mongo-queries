@@ -208,6 +208,15 @@ function findWithRanges() {
   })
 }
 
+function findWithSort() {
+  mongodb.connect.then(db => {
+    db.collection('books')
+      .find()
+      .sort({ price: 1 })
+      .toArray((err, res) => result(err, res))
+  })
+}
+
 function updateOne() {
   mongodb.connect.then(db => {
     var books = db.collection('books')
@@ -249,6 +258,7 @@ module.exports = {
   findWithMatchesAnyValues,
   findWithMatchesNoneValues,
   findWithRanges,
+  findWithSort,
   updateOne,
   updateMany
 }
