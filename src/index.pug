@@ -169,6 +169,14 @@ html(lang="en")
                 |
                 | db.collection('books').find(query).toArray()
 
+          .query(data-query="findWithMatchesAnyValues")
+            h4 Find with matches any of the values
+            pre
+              code.language-js
+                | const query = { price: { $in: [199, 350] } }
+                |
+                | db.collection('books').find(query).toArray()
+
           .query(data-query="updateOne")
             h4 Update one
             pre

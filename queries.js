@@ -184,6 +184,14 @@ function findWithLessThanOrEqual() {
   })
 }
 
+function findWithMatchesAnyValues() {
+  mongodb.connect.then(db => {
+    db.collection('books')
+      .find({ price: { $in: [199, 350] }})
+      .toArray((err, res) => result(err, res))
+  })
+}
+
 function updateOne() {
   mongodb.connect.then(db => {
     var books = db.collection('books')
@@ -222,6 +230,7 @@ module.exports = {
   findWithGreaterThanOrEqual,
   findWithLessThan,
   findWithLessThanOrEqual,
+  findWithMatchesAnyValues,
   updateOne,
   updateMany
 }
