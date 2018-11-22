@@ -185,6 +185,14 @@ html(lang="en")
                 |
                 | db.collection('books').find(query).toArray()
 
+          .query(data-query="findWithRanges")
+            h4 Find with specify ranges
+            pre
+              code.language-js
+                | const query = { price: { $gt: 100, $lt: 200 } }
+                |
+                | db.collection('books').find(query).toArray()
+
           .query(data-query="updateOne")
             h4 Update one
             pre

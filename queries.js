@@ -200,6 +200,14 @@ function findWithMatchesNoneValues() {
   })
 }
 
+function findWithRanges() {
+  mongodb.connect.then(db => {
+    db.collection('books')
+      .find({ price: { $gt: 100, $lt: 200 }})
+      .toArray((err, res) => result(err, res))
+  })
+}
+
 function updateOne() {
   mongodb.connect.then(db => {
     var books = db.collection('books')
@@ -240,6 +248,7 @@ module.exports = {
   findWithLessThanOrEqual,
   findWithMatchesAnyValues,
   findWithMatchesNoneValues,
+  findWithRanges,
   updateOne,
   updateMany
 }
