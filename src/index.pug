@@ -177,6 +177,14 @@ html(lang="en")
                 |
                 | db.collection('books').find(query).toArray()
 
+          .query(data-query="findWithMatchesNoneValues")
+            h4 Find with matches none of the values
+            pre
+              code.language-js
+                | const query = { price: { $nin: [199, 350] } }
+                |
+                | db.collection('books').find(query).toArray()
+
           .query(data-query="updateOne")
             h4 Update one
             pre
