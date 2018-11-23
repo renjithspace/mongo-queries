@@ -111,7 +111,7 @@ html(lang="en")
               code.language-js
                 | const fields = { _id: false, created: false }
                 |
-                | db.collection('books').find({}, { fields }).toArray()
+                | db.collection('books').find().preject(fields).toArray()
 
           .query(data-query="findWithIncludeFields")
             h4 Find with include fields
@@ -119,7 +119,7 @@ html(lang="en")
               code.language-js
                 | const fields = { title: true, author: true }
                 |
-                | db.collection('books').find({}, { fields }).toArray()
+                | db.collection('books').find().project(fields).toArray()
 
           .query(data-query="findWithEqual")
             h4 Find with equal

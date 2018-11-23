@@ -123,7 +123,8 @@ function findAll() {
 function findWithExcludeFields() {
   mongodb.connect.then(db => {
     db.collection('books')
-      .find({}, { fields: { _id: false, created: false } })
+      .find()
+      .project({ _id: false, created: false })
       .toArray((err, res) => result(err, res))
   })
 }
@@ -131,7 +132,8 @@ function findWithExcludeFields() {
 function findWithIncludeFields() {
   mongodb.connect.then(db => {
     db.collection('books')
-      .find({}, { fields: { title: true, author: true } })
+      .find()
+      .project({ title: true, author: true })
       .toArray((err, res) => result(err, res))
   })
 }
