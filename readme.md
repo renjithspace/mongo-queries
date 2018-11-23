@@ -2,19 +2,16 @@
 Realtime mongodb query playground
 
 #### Serve
-- Clone the repo
-- Open `config.json` and set `mongodb_uri`
-- Install dependencies
+1. Clone the repo
+2. Open `config.json` and set `mongodb_uri`
+3. Install dependencies
 ```
 npm i
 ```
-- Run socket server
 ```
-npm run serve:socket
+4. Serve
 ```
-- Serve web panel
-```
-npm run serve:panel
+npm run serve
 ```
 
 #### Web panel
