@@ -8,7 +8,6 @@ Realtime mongodb query playground
 ```
 npm i
 ```
-```
 4. Serve
 ```
 npm run serve
