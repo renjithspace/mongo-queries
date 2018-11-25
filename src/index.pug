@@ -51,8 +51,8 @@ html(lang="en")
                 |
                 | db.collection('books').insertMany(books)
 
-          .query(data-query="insert")
-            h4 Insert
+          .query(data-query="insertDocument")
+            h4 Insert document
             pre
               code.language-js
                 | const book = {
@@ -63,6 +63,12 @@ html(lang="en")
                 |   created: new Date()
                 | }
                 |
+                | db.collection('books').insert(book)
+          
+          .query(data-query="insertArrayOfDocuments")
+            h4 Insert Array of documents
+            pre
+              code.language-js
                 | const books = [
                 |   {
                 |     title: 'Sita - Warrior of Mithila',
@@ -80,7 +86,6 @@ html(lang="en")
                 |   }
                 | ]
                 |
-                | db.collection('books').insert(book)
                 | db.collection('books').insert(books)
 
           .query(data-query="findOne")

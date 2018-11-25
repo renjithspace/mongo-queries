@@ -55,7 +55,7 @@ function insertMany() {
   })
 }
 
-function insert() {
+function insertDocument() {
   mongodb.connect.then(db => {
     const book = {
       title: 'One Indian Girl',
@@ -64,7 +64,18 @@ function insert() {
       available: true,
       created: new Date()
     }
+    
+    var booksCollection = db.collection('books')
+    booksCollection.insert(book, (error, response) => {
+      var result = error ? error : response
+      io.emit('result', result)
+      collect()
+    })
+  })
+}
 
+function insertArrayOfDocuments() {
+  mongodb.connect.then(db => {
     const books = [
       {
         title: 'Sita - Warrior of Mithila',
@@ -83,14 +94,10 @@ function insert() {
     ]
     
     var booksCollection = db.collection('books')
-    booksCollection.insert(book, (error, response) => {
+    booksCollection.insert(books, (error, response) => {
       var result = error ? error : response
-
-      booksCollection.insert(books, (error, response) => {
-        result = [ result, error ? error : response ]
-        io.emit('result', result)
-        collect()
-      })
+      io.emit('result', result)
+      collect()
     })
   })
 }
@@ -264,7 +271,8 @@ module.exports = {
   collect,
   insertOne,
   insertMany,
-  insert,
+  insertDocument,
+  insertArrayOfDocuments,
   findOne,
   find,
   findAll,
