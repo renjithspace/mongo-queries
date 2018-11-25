@@ -66,11 +66,7 @@ function insertDocument() {
     }
     
     var booksCollection = db.collection('books')
-    booksCollection.insert(book, (error, response) => {
-      var result = error ? error : response
-      io.emit('result', result)
-      collect()
-    })
+    booksCollection.insert(book, (err, res) => result(err, res))
   })
 }
 
@@ -94,11 +90,7 @@ function insertArrayOfDocuments() {
     ]
     
     var booksCollection = db.collection('books')
-    booksCollection.insert(books, (error, response) => {
-      var result = error ? error : response
-      io.emit('result', result)
-      collect()
-    })
+    booksCollection.insert(books, (err, res) => result(err, res))
   })
 }
 
@@ -114,11 +106,7 @@ function insertWithId() {
     }
     
     var booksCollection = db.collection('books')
-    booksCollection.insert(book, (error, response) => {
-      var result = error ? error : response
-      io.emit('result', result)
-      collect()
-    })
+    booksCollection.insert(book, (err, res) => result(err, res))
   })
 }
 
