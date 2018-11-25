@@ -88,6 +88,21 @@ html(lang="en")
                 |
                 | db.collection('books').insert(books)
 
+          .query(data-query="insertWithId")
+            h4 Insert with ID
+            pre
+              code.language-js
+                | const book = {
+                |   _id: 1,
+                |   title: 'One Indian Girl',
+                |   author: 'Chetan Bhagat',
+                |   price: 176,
+                |   available: true,
+                |   created: new Date()
+                | }
+                |
+                | db.collection('books').insert(book)
+
           .query(data-query="findOne")
             h4 Find one
             pre

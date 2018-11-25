@@ -102,6 +102,26 @@ function insertArrayOfDocuments() {
   })
 }
 
+function insertWithId() {
+  mongodb.connect.then(db => {
+    const book = {
+      _id: 1,
+      title: 'One Indian Girl',
+      author: 'Chetan Bhagat',
+      price: 176,
+      available: true,
+      created: new Date()
+    }
+    
+    var booksCollection = db.collection('books')
+    booksCollection.insert(book, (error, response) => {
+      var result = error ? error : response
+      io.emit('result', result)
+      collect()
+    })
+  })
+}
+
 function findOne() {
   mongodb.connect.then(db => {
     const query = { author: 'Amish' }
@@ -273,6 +293,7 @@ module.exports = {
   insertMany,
   insertDocument,
   insertArrayOfDocuments,
+  insertWithId,
   findOne,
   find,
   findAll,
