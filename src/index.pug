@@ -280,6 +280,15 @@ html(lang="en")
                 |
                 | db.collection('books').update(filter, update)
 
+          .query(data-query="updateWithRename")
+            h4 Update with rename
+            pre
+              code.language-js
+                | const filter = { price: 176 }
+                | const update = { $rename: { price: 'amount' } }
+                |
+                | db.collection('books').update(filter, update)
+
           .query(data-query="updateOne")
             h4 Update one
             pre

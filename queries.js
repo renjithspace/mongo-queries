@@ -310,6 +310,17 @@ function updateWithUnset() {
   })
 }
 
+function updateWithRename() {
+  mongodb.connect.then(db => {
+    var books = db.collection('books')
+    books.update(
+      { price: 176 },
+      {$rename: { price: 'amount' }},
+      (err, res) => result(err, res)
+    )
+  })
+}
+
 function updateOne() {
   mongodb.connect.then(db => {
     var books = db.collection('books')
@@ -361,6 +372,7 @@ module.exports = {
   updateWithUpsert,
   updateWithIncrement,
   updateWithUnset,
+  updateWithRename,
   updateOne,
   updateMany
 }
