@@ -244,6 +244,15 @@ html(lang="en")
                 |
                 | db.collection('books').update(filter, update)
 
+          .query(data-query="updateMultipleDocuments")
+            h4 Update multiple documents
+            pre
+              code.language-js
+                | const filter = { price: 176 }
+                | const update = { $set: { price: 150 } }
+                |
+                | db.collection('books').update(filter, update, { multi: true})
+
           .query(data-query="updateOne")
             h4 Update one
             pre

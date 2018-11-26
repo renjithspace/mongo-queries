@@ -275,6 +275,18 @@ function updateDocument() {
   })
 }
 
+function updateMultipleDocuments() {
+  mongodb.connect.then(db => {
+    var books = db.collection('books')
+    books.update(
+      { price: 176 },
+      {$set: { price: 150 }},
+      { multi: true },
+      (err, res) => result(err, res)
+    )
+  })
+}
+
 function updateMany() {
   mongodb.connect.then(db => {
     var books = db.collection('books')
@@ -311,6 +323,7 @@ module.exports = {
   findWithLimit,
   findWithSortAndLimit,
   updateDocument,
+  updateMultipleDocuments,
   updateOne,
   updateMany
 }
