@@ -288,6 +288,17 @@ function updateWithUpsert() {
   })
 }
 
+function updateWithIncrement() {
+  mongodb.connect.then(db => {
+    var books = db.collection('books')
+    books.update(
+      { price: 176 },
+      {$inc: { price: 100 }},
+      (err, res) => result(err, res)
+    )
+  })
+}
+
 function updateOne() {
   mongodb.connect.then(db => {
     var books = db.collection('books')
@@ -337,6 +348,7 @@ module.exports = {
   updateDocument,
   updateMultipleDocuments,
   updateWithUpsert,
+  updateWithIncrement,
   updateOne,
   updateMany
 }

@@ -262,6 +262,15 @@ html(lang="en")
                 |
                 | db.collection('books').update(filter, update, { upsert: true})
 
+          .query(data-query="updateWithIncrement")
+            h4 Update with increment
+            pre
+              code.language-js
+                | const filter = { price: 176 }
+                | const update = { $inc: { price: 100 } }
+                |
+                | db.collection('books').update(filter, update)
+
           .query(data-query="updateOne")
             h4 Update one
             pre
