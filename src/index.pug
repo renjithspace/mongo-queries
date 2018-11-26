@@ -271,6 +271,15 @@ html(lang="en")
                 |
                 | db.collection('books').update(filter, update)
 
+          .query(data-query="updateWithMultiplies")
+            h4 Update with multiplies
+            pre
+              code.language-js
+                | const filter = { price: 176 }
+                | const update = { $mul: { price: 2 } }
+                |
+                | db.collection('books').update(filter, update)
+
           .query(data-query="updateWithUnset")
             h4 Update with unset
             pre

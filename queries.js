@@ -299,6 +299,17 @@ function updateWithIncrement() {
   })
 }
 
+function updateWithMultiplies() {
+  mongodb.connect.then(db => {
+    var books = db.collection('books')
+    books.update(
+      { price: 176 },
+      {$mul: { price: 2 }},
+      (err, res) => result(err, res)
+    )
+  })
+}
+
 function updateWithUnset() {
   mongodb.connect.then(db => {
     var books = db.collection('books')
@@ -371,6 +382,7 @@ module.exports = {
   updateMultipleDocuments,
   updateWithUpsert,
   updateWithIncrement,
+  updateWithMultiplies,
   updateWithUnset,
   updateWithRename,
   updateOne,
