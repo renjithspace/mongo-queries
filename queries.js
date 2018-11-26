@@ -253,17 +253,6 @@ function findWithSortAndLimit() {
   })
 }
 
-function updateOne() {
-  mongodb.connect.then(db => {
-    var books = db.collection('books')
-    books.updateOne(
-      { price: 176 },
-      {$set: { price: 150 }},
-      (err, res) => result(err, res)
-    )
-  })
-}
-
 function updateDocument() {
   mongodb.connect.then(db => {
     var books = db.collection('books')
@@ -282,6 +271,29 @@ function updateMultipleDocuments() {
       { price: 176 },
       {$set: { price: 150 }},
       { multi: true },
+      (err, res) => result(err, res)
+    )
+  })
+}
+
+function updateWithUpsert() {
+  mongodb.connect.then(db => {
+    var books = db.collection('books')
+    books.update(
+      { price: 176 },
+      {$set: { price: 150 }},
+      { upsert: true },
+      (err, res) => result(err, res)
+    )
+  })
+}
+
+function updateOne() {
+  mongodb.connect.then(db => {
+    var books = db.collection('books')
+    books.updateOne(
+      { price: 176 },
+      {$set: { price: 150 }},
       (err, res) => result(err, res)
     )
   })
@@ -324,6 +336,7 @@ module.exports = {
   findWithSortAndLimit,
   updateDocument,
   updateMultipleDocuments,
+  updateWithUpsert,
   updateOne,
   updateMany
 }
