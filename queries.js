@@ -385,6 +385,13 @@ function deleteOne() {
   })
 }
 
+function deleteMany() {
+  mongodb.connect.then(db => {
+    var books = db.collection('books')
+    books.deleteMany({ available: false }, (err, res) => result(err, res))
+  })
+}
+
 module.exports = {
   collect,
   insertOne,
@@ -420,5 +427,6 @@ module.exports = {
   updateOneWithUpsert,
   updateMany,
   updateManyWithUpsert,
-  deleteOne
+  deleteOne,
+  deleteMany
 }

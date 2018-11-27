@@ -339,6 +339,12 @@ html(lang="en")
             pre
               code.language-js
                 | db.collection('books').deleteOne({ available: true })
+
+          .query(data-query="deleteMany")
+            h4 Delete many
+            pre
+              code.language-js
+                | db.collection('books').deleteMany({ available: false })
               
       .collection.col
         h2 Collection
