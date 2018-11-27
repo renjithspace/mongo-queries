@@ -324,6 +324,15 @@ html(lang="en")
                 | const update = { $set: { price: 340 } }
                 |
                 | db.collection('books').updateMany(filter, update)
+
+          .query(data-query="updateManyWithUpsert")
+            h4 Update many with upsert
+            pre
+              code.language-js
+                | const filter = { price: 350 }
+                | const update = { $set: { price: 340 } }
+                |
+                | db.collection('books').updateMany(filter, update,  { upsert: true })
               
       .collection.col
         h2 Collection

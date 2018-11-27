@@ -366,6 +366,18 @@ function updateMany() {
   })
 }
 
+function updateManyWithUpsert() {
+  mongodb.connect.then(db => {
+    var books = db.collection('books')
+    books.updateMany(
+      { price: 350 },
+      {$set: { price: 340 }},
+      { upsert: true },
+      (err, res) => result(err, res)
+    )
+  })
+}
+
 module.exports = {
   collect,
   insertOne,
@@ -399,5 +411,6 @@ module.exports = {
   updateWithRename,
   updateOne,
   updateOneWithUpsert,
-  updateMany
+  updateMany,
+  updateManyWithUpsert
 }
