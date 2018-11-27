@@ -333,6 +333,12 @@ html(lang="en")
                 | const update = { $set: { price: 340 } }
                 |
                 | db.collection('books').updateMany(filter, update,  { upsert: true })
+
+          .query(data-query="deleteOne")
+            h4 Delete one
+            pre
+              code.language-js
+                | db.collection('books').deleteOne({ available: true })
               
       .collection.col
         h2 Collection

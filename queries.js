@@ -378,6 +378,13 @@ function updateManyWithUpsert() {
   })
 }
 
+function deleteOne() {
+  mongodb.connect.then(db => {
+    var books = db.collection('books')
+    books.deleteOne({ available: true }, (err, res) => result(err, res))
+  })
+}
+
 module.exports = {
   collect,
   insertOne,
@@ -412,5 +419,6 @@ module.exports = {
   updateOne,
   updateOneWithUpsert,
   updateMany,
-  updateManyWithUpsert
+  updateManyWithUpsert,
+  deleteOne
 }
