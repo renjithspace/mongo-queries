@@ -116,6 +116,21 @@ html(lang="en")
             pre
               code.language-js
                 | db.collection('books').findOneAndDelete({ author: 'Amish' })
+
+          .query(data-query="findOneAndReplace")
+            h4 Find one and replace
+            pre
+              code.language-js
+                | const filter = { price: 176 }
+                | const book = {
+                |   title: 'One Indian Girl',
+                |   author: 'Chetan Bhagat',
+                |   price: 200,
+                |   available: false,
+                |   created: new Date()
+                | }
+                |
+                | db.collection('books').findOneAndReplace(filter, book)
           
           .query(data-query="find")
             h4 Find

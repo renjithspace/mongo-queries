@@ -125,6 +125,21 @@ function findOneAndDelete() {
   })
 }
 
+function findOneAndReplace() {
+  mongodb.connect.then(db => {
+    const filter = { price: 176 }
+    const book = {
+      title: 'One Indian Girl',
+      author: 'Chetan Bhagat',
+      price: 200,
+      available: false,
+      created: new Date()
+    }
+    var books = db.collection('books')
+    books.findOneAndReplace(filter, book, (err, res) => result(err, res))
+  })
+}
+
 function find() {
   mongodb.connect.then(db => {
     const query = { price: 350 }
@@ -408,6 +423,7 @@ module.exports = {
   insertWithId,
   findOne,
   findOneAndDelete,
+  findOneAndReplace,
   find,
   findAll,
   findWithExcludeFields,
