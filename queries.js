@@ -118,6 +118,13 @@ function findOne() {
   })
 }
 
+function findOneAndDelete() {
+  mongodb.connect.then(db => {
+    var books = db.collection('books')
+    books.findOneAndDelete({ author: 'Amish' }, (err, res) => result(err, res))
+  })
+}
+
 function find() {
   mongodb.connect.then(db => {
     const query = { price: 350 }
@@ -400,6 +407,7 @@ module.exports = {
   insertArrayOfDocuments,
   insertWithId,
   findOne,
+  findOneAndDelete,
   find,
   findAll,
   findWithExcludeFields,

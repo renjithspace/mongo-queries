@@ -110,6 +110,12 @@ html(lang="en")
                 | const query = { author: 'Amish' }
                 |
                 | db.collection('books').findOne(query)
+
+          .query(data-query="findOneAndDelete")
+            h4 Find one and delete
+            pre
+              code.language-js
+                | db.collection('books').findOneAndDelete({ author: 'Amish' })
           
           .query(data-query="find")
             h4 Find
