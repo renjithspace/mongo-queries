@@ -160,6 +160,15 @@ html(lang="en")
                 | const sort = { title: 1 }
                 |
                 | db.collection('books').findOneAndUpdate(filter, update, { sort })
+
+          .query(data-query="findOneAndUpdateWithUpsert")
+            h4 Find one and update with upsert
+            pre
+              code.language-js
+                | const filter = { price: 176 }
+                | const update = { $inc: { price: 14 } }
+                |
+                | db.collection('books').findOneAndUpdate(filter, update, { upsert: true })
           
           .query(data-query="find")
             h4 Find

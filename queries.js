@@ -169,6 +169,15 @@ function findOneAndUpdateWithSort() {
   })
 }
 
+function findOneAndUpdateWithUpsert() {
+  mongodb.connect.then(db => {
+    const filter = { price: 176 }
+    const update = { $inc: { price: 14 } }
+    var books = db.collection('books')
+    books.findOneAndUpdate(filter, update, { upsert: true }, (err, res) => result(err, res))
+  })
+}
+
 function find() {
   mongodb.connect.then(db => {
     const query = { price: 350 }
@@ -456,6 +465,7 @@ module.exports = {
   findOneAndUpdate,
   findOneAndUpdateWithProjection,
   findOneAndUpdateWithSort,
+  findOneAndUpdateWithUpsert,
   find,
   findAll,
   findWithExcludeFields,
