@@ -150,6 +150,16 @@ html(lang="en")
                 | const projection = { _id: false, title: true, author: true }
                 |
                 | db.collection('books').findOneAndUpdate(filter, update, { projection })
+
+          .query(data-query="findOneAndUpdateWithSort")
+            h4 Find one and update with sort
+            pre
+              code.language-js
+                | const filter = { available: true }
+                | const update = { $inc: { price: 14 } }
+                | const sort = { title: 1 }
+                |
+                | db.collection('books').findOneAndUpdate(filter, update, { sort })
           
           .query(data-query="find")
             h4 Find
