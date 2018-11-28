@@ -140,6 +140,16 @@ html(lang="en")
                 | const update = { $inc: { price: 14 } }
                 |
                 | db.collection('books').findOneAndUpdate(filter, update)
+
+          .query(data-query="findOneAndUpdateWithProjection")
+            h4 Find one and update with projection
+            pre
+              code.language-js
+                | const filter = { price: 176 }
+                | const update = { $inc: { price: 14 } }
+                | const projection = { _id: false, title: true, author: true }
+                |
+                | db.collection('books').findOneAndUpdate(filter, update, { projection })
           
           .query(data-query="find")
             h4 Find

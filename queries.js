@@ -149,6 +149,16 @@ function findOneAndUpdate() {
   })
 }
 
+function findOneAndUpdateWithProjection() {
+  mongodb.connect.then(db => {
+    const filter = { price: 176 }
+    const update = { $inc: { price: 14 } }
+    const projection = { _id: false, title: true, author: true }
+    var books = db.collection('books')
+    books.findOneAndUpdate(filter, update, { projection }, (err, res) => result(err, res))
+  })
+}
+
 function find() {
   mongodb.connect.then(db => {
     const query = { price: 350 }
@@ -434,6 +444,7 @@ module.exports = {
   findOneAndDelete,
   findOneAndReplace,
   findOneAndUpdate,
+  findOneAndUpdateWithProjection,
   find,
   findAll,
   findWithExcludeFields,
