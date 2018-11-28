@@ -131,6 +131,15 @@ html(lang="en")
                 | }
                 |
                 | db.collection('books').findOneAndReplace(filter, book)
+
+          .query(data-query="findOneAndUpdate")
+            h4 Find one and update
+            pre
+              code.language-js
+                | const filter = { price: 176 }
+                | const update = { $inc: { price: 14 } }
+                |
+                | db.collection('books').findOneAndUpdate(filter, update)
           
           .query(data-query="find")
             h4 Find
