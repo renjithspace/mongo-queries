@@ -410,6 +410,12 @@ html(lang="en")
             pre
               code.language-js
                 | db.collection('books').estimatedDocumentCount()
+
+          .query(data-query="countDocuments")
+            h4 Count documents
+            pre
+              code.language-js
+                | db.collection('books').countDocuments({ available: true })
               
       .collection.col
         h2 Collection
