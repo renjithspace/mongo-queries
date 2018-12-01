@@ -452,6 +452,22 @@ function deleteMany() {
   })
 }
 
+function replaceOne() {
+  mongodb.connect.then(db => {
+    const filter = { title: 'One Indian Girl' }
+    const book = {
+      title: 'One Indian Girl - New Edition',
+      author: 'Chetan Bhagat',
+      price: 182,
+      available: false,
+      created: new Date()
+    }
+
+    var books = db.collection('books')
+    books.replaceOne(filter, book, (err, res) => result(err, res))
+  })
+}
+
 function countAllDocumentsInCollection() {
   mongodb.connect.then(db => {
     var books = db.collection('books')
@@ -509,6 +525,7 @@ module.exports = {
   updateManyWithUpsert,
   deleteOne,
   deleteMany,
+  replaceOne,
   countAllDocumentsInCollection,
   countDocuments
 }
