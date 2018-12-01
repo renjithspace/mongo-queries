@@ -452,6 +452,13 @@ function deleteMany() {
   })
 }
 
+function countAllDocumentsInCollection() {
+  mongodb.connect.then(db => {
+    var books = db.collection('books')
+    books.estimatedDocumentCount((err, res) => result(err, res))
+  })
+}
+
 module.exports = {
   collect,
   insertOne,
@@ -494,5 +501,6 @@ module.exports = {
   updateMany,
   updateManyWithUpsert,
   deleteOne,
-  deleteMany
+  deleteMany,
+  countAllDocumentsInCollection
 }

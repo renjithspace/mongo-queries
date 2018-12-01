@@ -404,6 +404,12 @@ html(lang="en")
             pre
               code.language-js
                 | db.collection('books').deleteMany({ available: false })
+
+          .query(data-query="countAllDocumentsInCollection")
+            h4 Count all documents in a collection
+            pre
+              code.language-js
+                | db.collection('books').estimatedDocumentCount()
               
       .collection.col
         h2 Collection
