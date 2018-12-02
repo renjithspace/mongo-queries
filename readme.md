@@ -61,4 +61,4 @@ npm run serve
 45. Count documents
 
 #### Web panel
-![alt text](https://i.imgur.com/wQlNnby.png)
+![alt text](https://i.imgur.com/SflUY5V.png)
