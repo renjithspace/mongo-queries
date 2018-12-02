@@ -56,9 +56,10 @@ npm run serve
 40. Update many with upsert
 41. Delete one
 42. Delete many
-43. Replace one document
-44. Count all documents in a collection
-45. Count documents
+43. Drop
+44. Replace one document
+45. Count all documents in a collection
+46. Count documents
 
 #### Web panel
 ![alt text](https://i.imgur.com/SflUY5V.png)

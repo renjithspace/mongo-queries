@@ -423,6 +423,12 @@ html(lang="en")
               code.language-js
                 | db.collection('books').deleteMany({ available: false })
 
+          .query(data-query="drop")
+            h4 Drop
+            pre
+              code.language-js
+                | db.collection('books').drop()
+
           .query(data-query="replaceOne")
             h4 Replace one document
             pre

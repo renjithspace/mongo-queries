@@ -471,6 +471,13 @@ function deleteMany() {
   })
 }
 
+function drop() {
+  mongodb.connect.then(db => {
+    var books = db.collection('books')
+    books.drop((err, res) => result(err, res))
+  })
+}
+
 function replaceOne() {
   mongodb.connect.then(db => {
     const filter = { title: 'One Indian Girl' }
@@ -545,6 +552,7 @@ module.exports = {
   updateManyWithUpsert,
   deleteOne,
   deleteMany,
+  drop,
   replaceOne,
   countAllDocumentsInCollection,
   countDocuments
