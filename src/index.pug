@@ -103,6 +103,24 @@ html(lang="en")
                 |
                 | db.collection('books').insert(book)
 
+          .query(data-query="bulkWrite")
+            h4 Bulk write operations
+            pre
+              code.language-js
+                | const book = {
+                |   title: 'One Indian Girl',
+                |   author: 'Chetan Bhagat',
+                |   price: 176,
+                |   available: true,
+                |   created: new Date()
+                | }
+                | const filter = { available: false }
+                |
+                | const insertBook = { insertOne: { document: book } }
+                | const deleteBook = { deleteOne: { filter }}
+                |
+                | db.collection('books').bulkWrite([insertBook, deleteBook])
+
           .query(data-query="findOne")
             h4 Find one
             pre

@@ -110,6 +110,25 @@ function insertWithId() {
   })
 }
 
+function bulkWrite() {
+  mongodb.connect.then(db => {
+    const book = {
+      title: 'One Indian Girl',
+      author: 'Chetan Bhagat',
+      price: 176,
+      available: true,
+      created: new Date()
+    }
+    const filter = { available: false }
+    
+    const insertBook = { insertOne: { document: book } }
+    const deleteBook = { deleteOne: { filter }}
+    
+    var booksCollection = db.collection('books')
+    booksCollection.bulkWrite([insertBook, deleteBook], (err, res) => result(err, res))
+  })
+}
+
 function findOne() {
   mongodb.connect.then(db => {
     const query = { author: 'Amish' }
@@ -489,6 +508,7 @@ module.exports = {
   insertDocument,
   insertArrayOfDocuments,
   insertWithId,
+  bulkWrite,
   findOne,
   findOneAndDelete,
   findOneAndReplace,
